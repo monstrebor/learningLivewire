@@ -25,4 +25,5 @@
             </div>
         @endif
     </div>
+    <livewire:LoadingExample>
 </div>
