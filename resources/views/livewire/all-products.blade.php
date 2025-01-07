@@ -30,3 +30,20 @@
             </tbody>
         </table>
 </div>
+
+<script>
+    document.addEventListener('livewire:initialized',()=>{
+        @this.on('refresh-products',(event)=>{
+            // alert('product created/updated successfully.')
+            var myModalEl=document.querySelector('#exampleModal')
+            var modal=bootstrap.Modal.getOrCreateInstance(myModalEl)
+
+            //setting a time
+            setTimeout(() => {
+                modal.hide();
+
+                @this.dispatch('reset-modal');
+            }, 3000);
+        })
+    })
+</script>

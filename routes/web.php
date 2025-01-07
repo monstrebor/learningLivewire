@@ -1,6 +1,6 @@
 <?php
 
-use App\Livewire\{AllProducts, AllUsers, Calculator, Counter, Dropdown, FileUpload, LoadingExample, Polling, RegisterUser};
+use App\Livewire\{AllPosts, AllProducts, AllUsers, Calculator, Counter, CreatePosts, Dropdown, FileUpload, LoadingExample, Polling, RegisterUser};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,3 +25,5 @@ Route::get('/all-products', AllProducts::class, );
 Route::get('/poll', Polling::class, );
 Route::get('/loading-example', LoadingExample::class, );
 Route::get('/calculator', Calculator::class, );
+Route::get('/all-posts', AllPosts::class, )->name('all-post');
+Route::get('/create-posts', CreatePosts::class, )->name('create-post');

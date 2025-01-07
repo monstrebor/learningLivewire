@@ -24,6 +24,9 @@
           <li class="nav-item">
             <a wire:navigate class="{{request()->is('calculator')?'nav-link active':'nav-link'}}" href="/calculator">Calculator</a>
           </li>
+          <li class="nav-item">
+            <a wire:navigate class="{{request()->is('all-posts')?'nav-link active':'nav-link'}}" href="/all-posts">All Post</a>
+          </li>
         </ul>
         <span class="text-xs m-10"><livewire:polling></span>
         <form class="d-flex" role="search">
