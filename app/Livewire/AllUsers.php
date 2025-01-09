@@ -10,11 +10,11 @@ class AllUsers extends Component
 {
     use WithPagination;
 
-    public $q;
-    public $pagination = 10;
+    public $q = '';
+    public $pagination = 10; // To still run the search
 
-    #[Computed(persist:true,seconds:7200)] //to still run the search 
-    public function users()
+    #[Computed(persist: true, seconds: 7200)]
+    public function getUsersProperty()
     {
         if (!$this->q) {
             return User::simplePaginate($this->pagination);
@@ -27,11 +27,9 @@ class AllUsers extends Component
 
     public function render()
     {
-        return view(
-            'livewire.all-users',
-            // 'users' => User::cursorPaginate(5),
-            // 'users'=>User::simplePaginate(5),
-        );
+        return view('livewire.all-users', [
+            'users' => $this->users, // Pass users to the view
+        ]);
     }
 
     public function updatedQ()

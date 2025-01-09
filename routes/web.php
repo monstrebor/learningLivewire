@@ -1,10 +1,10 @@
 <?php
 
-use App\Livewire\{AllPosts, AllProducts, AllUsers, Calculator, Counter, CreatePosts, Dropdown, FileUpload, LoadingExample, MultiStep, Polling, RegisterUser};
+use App\Livewire\{AllPosts, AllProducts, AllUsers, Calculator, Counter, CreatePosts, Dropdown, FileUpload, LoadingExample, MultiStep, Polling, RegisterUser, WireConfirm};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('sample');
 });
 
 /*
@@ -28,3 +28,4 @@ Route::get('/calculator', Calculator::class, );
 Route::get('/all-posts', AllPosts::class, )->name('all-post');
 Route::get('/create-posts', CreatePosts::class, )->name('create-post');
 Route::get('/multi-step', MultiStep::class, );
+Route::get('/wire-confirm', WireConfirm::class, );

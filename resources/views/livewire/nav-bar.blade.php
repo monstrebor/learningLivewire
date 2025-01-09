@@ -27,6 +27,9 @@
           <li class="nav-item">
             <a wire:navigate class="{{request()->is('all-posts')?'nav-link active':'nav-link'}}" href="/all-posts">All Post</a>
           </li>
+          <li class="nav-item">
+            <a wire:navigate class="{{request()->is('multi-step')?'nav-link active':'nav-link'}}" href="/multi-step">Multi Step</a>
+          </li>
         </ul>
         <span class="text-xs m-10"><livewire:polling></span>
         <form class="d-flex" role="search">

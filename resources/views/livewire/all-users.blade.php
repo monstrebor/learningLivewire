@@ -1,12 +1,16 @@
 <div>
-    {{-- The whole world belongs to you. --}}
     <h1 class="w-full text-center">All Users</h1>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <div class="row g-3 align-items-center">
         <div class="col-auto">
-            <input type="text" wire:model.live='q' class="form-control" placeholder="search users">
+            <input type="text" wire:model='q' class="form-control" placeholder="search users">
         </div>
         <div class="col-auto">
-            <select wire:model.live='pagination' name="" class="form-select">
+            <select wire:model='pagination' class="form-select">
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="50">50</option>
@@ -14,6 +18,7 @@
             </select>
         </div>
     </div>
+
     <table class="table table-sm">
         <thead>
             <tr>
@@ -24,15 +29,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($this->users as $item)
-            <tr>
-                <th scope="row">{{ $loop->index + 1 }}</th>
-                <td>{{ $item->name }}</td>
-                <td>{{ $item->email }}</td>
-                <td>@mdo</td>
-            </tr>
+            @foreach ($users as $item)
+                <tr>
+                    <th scope="row">{{ $loop->iteration }}</th> <!-- Use iteration for correct index -->
+                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>
+                        <a href="{{ route('user-destroy', ['userId' => $item->id]) }}">
+                            <livewire:wire-confirm :userId="$item->id" />
+                        </a>
+                    </td> <!-- Replace with actual action buttons if needed -->
+                </tr>
             @endforeach
         </tbody>
     </table>
-    <span>{{ $this->users->links() }}</span>
+
+    {{ $users->links() }} <!-- Correctly display pagination links -->
 </div>
