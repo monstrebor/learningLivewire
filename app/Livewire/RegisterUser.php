@@ -4,7 +4,7 @@ namespace App\Livewire;
 
 // use Illuminate\Support\Facades\Validator;
 
-use App\Livewire\Forms\RegisterForm;
+use App\Livewire\Forms\RegisterUserForm;
 use Livewire\Component;
 
 class RegisterUser extends Component
@@ -20,7 +20,7 @@ class RegisterUser extends Component
         ];
     }
     */
-    public RegisterForm $form;
+    public RegisterUserForm $form;
 
     public function save()
     {

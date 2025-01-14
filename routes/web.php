@@ -1,10 +1,23 @@
 <?php
 
-use App\Livewire\{AllPosts, AllProducts, AllUsers, Calculator, Counter, CreatePosts, Dropdown, FileUpload, LoadingExample, MultiStep, Polling, RegisterUser, WireConfirm};
+use App\Livewire\{AllPosts, AllProducts, AllUsers, Calculator, Counter, CreatePosts, Dropdown, FileUpload, LoadingExample, MultiStep, Patients, Polling, RegisterUser, WireConfirm};
 use Illuminate\Support\Facades\Route;
+/*
+|--------------------------------------------------------------------------
+| Guest
+|--------------------------------------------------------------------------
+|
+|  This is the Routes of the Livewire Experiments
+|
+*/
+Route::group(['middleware' => 'guest'], function () {
+    Route::view('/', 'home.index')->name('home.index');
+    Route::view('/login', 'home.login')->name('home.login');
+    Route::view('/register', 'home.register')->name('home.register');
+});
 
-Route::get('/', function () {
-    return view('sample');
+Route::group(['middleware' => ['temporary', 'auth'], 'prefix' => 'temp-members'], function () {
+    Route::view('/home', 'Temp.index')->name('Temp.home');
 });
 
 /*
@@ -12,9 +25,11 @@ Route::get('/', function () {
 | Livewire Study Routes
 |--------------------------------------------------------------------------
 |
-|  This is the Routes of the Livewire Exoeriments
+|  This is the Routes of the Livewire Experiments
 |
 */
+
+
 
 Route::get('/counter', Counter::class, );
 Route::get('/register-user', RegisterUser::class, );
@@ -29,3 +44,4 @@ Route::get('/all-posts', AllPosts::class, )->name('all-post');
 Route::get('/create-posts', CreatePosts::class, )->name('create-post');
 Route::get('/multi-step', MultiStep::class, );
 Route::get('/wire-confirm', WireConfirm::class, );
+Route::get('/patients', Patients::class, );

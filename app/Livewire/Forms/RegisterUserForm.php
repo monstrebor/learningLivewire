@@ -5,17 +5,15 @@ namespace App\Livewire\Forms;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 
-class RegisterForm extends Form
+class RegisterUserForm extends Form
 {
-    #[Rule('required')]
+    // #[Rule('required', as: 'nigga')]
+    #[Rule('required', message: 'your dumb as fvck name is required bitch')]
     public $name;
 
     #[Rule('required|unique:users|email')]
     public $email;
 
-    #[Rule('required|min:3|confirmed')]
+    #[Rule('required|min:3')]
     public $password;
-
-    #[Rule('required|same:password')]
-    public $password_confirmation;
 }
