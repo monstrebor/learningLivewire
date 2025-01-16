@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Livewire\Forms\LoginForm;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Login extends Component
@@ -13,7 +14,12 @@ class Login extends Component
     {
         $this->form->validate();
 
-        dd($this->form->email);
+        if (Auth::attempt(['email' => $this->form->email, 'password' => $this->form->password])) {
+            return redirect()->route('admin.home');
+        } else {
+            session()->flash('error', 'Invalid credentials, please try again.');
+            return back();
+        }
     }
 
 

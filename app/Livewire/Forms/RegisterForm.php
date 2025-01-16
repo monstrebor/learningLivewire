@@ -12,10 +12,4 @@ class RegisterForm extends Form
 
     #[Rule('required|unique:users|email')]
     public $email;
-
-    #[Rule('required|min:3|confirmed')]
-    public $password;
-
-    #[Rule('required|same:password')]
-    public $password_confirmation;
 }

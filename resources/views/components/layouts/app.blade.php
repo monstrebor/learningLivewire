@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <livewire:nav-bar lazy="true" />
+    <livewire:study.nav-bar lazy="true" />
     <div class="container">
         {{ $slot }}
     </div>

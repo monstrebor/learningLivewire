@@ -48,6 +48,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth' => \App\Http\Middleware\Authenticate::class,
     ];
 }

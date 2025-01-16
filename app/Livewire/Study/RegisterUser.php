@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Livewire\Study;
+
+use App\Livewire\Forms\RegisterUserForm;
+use Livewire\Component;
+
+class RegisterUser extends Component
+{
+    //Validating using the rules method
+    /*
+    public function rules()
+    {
+        return[
+            'name'=>'required',
+             'email'=>'required|unique:users|email',
+             'password'=>'required|min:3',
+        ];
+    }
+    */
+    public RegisterUserForm $form;
+
+    public function save()
+    {
+        /*
+         $validated=$this->validate([
+             'name'=>'required',
+             'email'=>'required|unique:users|email',
+             'password'=>'required|min:3',
+         ]);
+        */
+
+        //validating using the Validator
+      /*
+        $validated=Validator::make([
+            'name'=>$this->name,
+            'email'=>$this->email,
+            'password'=>$this->password,
+        ],
+        [
+            'name'=>'required',
+            'email'=>'required|unique:users|email',
+            'password'=>'required|min:3',
+        ],
+        ['required' => 'the :attribute field is required NIGGA']
+    )->validate();
+    */
+
+    $this->form->validate();
+    }
+
+    public function render()
+    {
+        return view('livewire.study.register-user');
+    }
+}

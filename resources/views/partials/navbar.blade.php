@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="{{route('livewire-studies')}}">Studies</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pricing</a>
